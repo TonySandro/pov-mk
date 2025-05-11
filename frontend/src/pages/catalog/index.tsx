@@ -1,5 +1,5 @@
 import bannerImage from '../../image/education-banner.jpg';
-import InitialSection from '../../components/InitialPage/InitialSection/InitialSectionComponent';
+import InitialSection from '../../components/InitialPage/InitialSection/InitialSection';
 
 function Catalog() {
     return (
