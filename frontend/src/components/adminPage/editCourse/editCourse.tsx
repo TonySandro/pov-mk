@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { updateCourse } from '../../../features/course/courseSlice';
 import CourseForm, { CourseFormData } from '../courseForm/courseForm';
+import styles from './editCourse.module.scss';
 
 interface Props {
   course: {
@@ -31,7 +32,7 @@ const EditCourse: React.FC<Props> = ({ course, onClose }) => {
         initialValues={course}
         submitLabel="Salvar Alterações"
       />
-      <button onClick={onClose}>Cancelar</button>
+      <button onClick={onClose} className={styles.cancel_button}>Cancelar</button>
     </div>
   );
 };
