@@ -1,0 +1,66 @@
+.bannerSection {
+  background-color: #fff;
+  padding: 1rem 0;
+}
+
+.bannerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.bannerImage {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.initialSectionSec {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+}
+
+.initialSectionContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.profileIcon {
+  width: 3rem;
+  height: 3rem;
+  background-color: #343a40;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcomeText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.roleText {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0.25rem 0 0 0;
+}
