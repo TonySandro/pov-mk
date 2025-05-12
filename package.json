@@ -1,6 +1,7 @@
 {
-  "name": "frontend",
+  "name": "pov-mk",
   "version": "0.1.0",
+  "author": "Tony S.",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
