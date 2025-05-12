@@ -54,7 +54,8 @@ const AddCourse: React.FC = () => {
   });
 
   const onSubmit = (data: CourseFormData) => {
-    const courseWithId = { ...data, id: uuidv4() };
+    const clonedData = JSON.parse(JSON.stringify(data));
+    const courseWithId = { ...clonedData, id: uuidv4() };
     dispatch(addCourse(courseWithId));
     reset();
   };
