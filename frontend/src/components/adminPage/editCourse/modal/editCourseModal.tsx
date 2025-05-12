@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EditCourse from './editCourse';
+import EditCourse from '../editCourse';
 import styles from './editCourseModal.module.scss';
 
 interface Props {

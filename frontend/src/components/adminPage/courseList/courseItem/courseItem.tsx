@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteCourse } from '../../../../features/course/courseSlice';
 import styles from './courseItem.module.scss';
-import EditCourseModal from '../../editCourse/editCourseModal';
+import EditCourseModal from '../../editCourse/modal/editCourseModal';
 
 interface Course {
   id: string;
