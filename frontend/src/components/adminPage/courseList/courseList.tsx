@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './courseList.module.scss';
 import { RootState } from '../../../app/store';
-import CourseItem from '../courseItem/courseItem';
+import CourseItem from './courseItem/courseItem';
 
 const CourseList: React.FC = () => {
   const courses = useSelector((state: RootState) => state.course.list);
