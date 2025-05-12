@@ -89,13 +89,19 @@ const AddCourse: React.FC = () => {
                     placeholder={`Módulo ${index + 1}`}
                     {...register(`modules.${index}.name` as const)}
                   />
-                  <button type="button" onClick={() => remove(index)}>Remover</button>
+                  <button type="button" onClick={() => remove(index)}>
+                    Remover
+                  </button>
                   {errors.modules?.[index]?.name && (
                     <p className={styles.errorText}>{errors.modules[index]?.name?.message}</p>
                   )}
                 </div>
               ))}
-              <button type="button" onClick={() => append({ name: '' })}>
+              <button
+                type="button"
+                className={styles.addModuleButton}
+                onClick={() => append({ name: '' })}
+              >
                 Adicionar Módulo
               </button>
             </div>
