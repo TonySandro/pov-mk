@@ -6,26 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addCourse } from '../../../features/course/courseSlice';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './addCourse.module.scss';
-
-const courseSchema = yup.object({
-  title: yup.string().required('Título é obrigatório'),
-  description: yup.string().required('Descrição é obrigatória'),
-  price: yup
-    .number()
-    .typeError('O preço deve ser um número')
-    .positive('O preço deve ser positivo')
-    .required('Preço é obrigatório'),
-  imageUrl: yup.string().url('URL inválida').required('Imagem é obrigatória'),
-  modules: yup
-    .array()
-    .of(
-      yup.object({
-        name: yup.string().required('Nome do módulo é obrigatório'),
-      })
-    )
-    .optional()
-    .default([]),
-});
+import { useTranslation } from 'react-i18next';
 
 type CourseFormData = {
   title: string;
@@ -37,6 +18,27 @@ type CourseFormData = {
 
 const AddCourse: React.FC = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
+  const courseSchema = yup.object({
+    title: yup.string().required(t('errors.title')),
+    description: yup.string().required(t('errors.description')),
+    price: yup
+      .number()
+      .typeError(t('errors.price_type'))
+      .positive(t('errors.price_positive'))
+      .required(t('errors.price_required')),
+    imageUrl: yup.string().url(t('errors.image_url')).required(t('errors.image_required')),
+    modules: yup
+      .array()
+      .of(
+        yup.object({
+          name: yup.string().required(t('errors.module_required')),
+        })
+      )
+      .optional()
+      .default([]),
+  });
 
   const {
     register,
@@ -66,40 +68,40 @@ const AddCourse: React.FC = () => {
         <div className={styles.formWrapper}>
           <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="title">Título</label>
+              <label className={styles.label} htmlFor="title">{t('title')}</label>
               <input className={styles.input} id="title" {...register('title')} />
               {errors.title && <p className={styles.errorText}>{errors.title.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="description">Descrição</label>
+              <label className={styles.label} htmlFor="description">{t('description')}</label>
               <textarea className={styles.input} id="description" {...register('description')} />
               {errors.description && <p className={styles.errorText}>{errors.description.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="price">Preço</label>
+              <label className={styles.label} htmlFor="price">{t('price')}</label>
               <input type="number" className={styles.input} id="price" {...register('price')} />
               {errors.price && <p className={styles.errorText}>{errors.price.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="imageUrl">URL da Imagem</label>
+              <label className={styles.label} htmlFor="imageUrl">{t('imageUrl')}</label>
               <input className={styles.input} id="imageUrl" {...register('imageUrl')} />
               {errors.imageUrl && <p className={styles.errorText}>{errors.imageUrl.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label}>Módulos (opcional)</label>
+              <label className={styles.label}>{t('modulesLabel')}</label>
               {fields.map((field, index) => (
                 <div key={field.id} className={styles.moduleItem}>
                   <input
                     className={styles.input}
-                    placeholder={`Módulo ${index + 1}`}
+                    placeholder={t('modulePlaceholder', { index: index + 1 })}
                     {...register(`modules.${index}.name` as const)}
                   />
                   <button type="button" onClick={() => remove(index)}>
-                    Remover
+                    {t('remove')}
                   </button>
                   {errors.modules?.[index]?.name && (
                     <p className={styles.errorText}>{errors.modules[index]?.name?.message}</p>
@@ -111,11 +113,11 @@ const AddCourse: React.FC = () => {
                 className={styles.addModuleButton}
                 onClick={() => append({ name: '' })}
               >
-                Adicionar Módulo
+                {t('addModule')}
               </button>
             </div>
 
-            <button className={styles.loginButton} type="submit">Adicionar Curso</button>
+            <button className={styles.loginButton} type="submit">{t('submit')}</button>
           </form>
         </div>
       </div>

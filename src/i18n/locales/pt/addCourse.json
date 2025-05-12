@@ -1,0 +1,22 @@
+{
+  "title": "Título",
+  "description": "Descrição",
+  "price": "Preço",
+  "imageUrl": "URL da Imagem",
+  "modulesLabel": "Módulos (opcional)",
+  "modulePlaceholder": "Módulo {{index}}",
+  "remove": "Remover",
+  "addModule": "Adicionar Módulo",
+  "submit": "Adicionar Curso",
+
+  "errors": {
+    "title": "Título é obrigatório",
+    "description": "Descrição é obrigatória",
+    "price_type": "O preço deve ser um número",
+    "price_positive": "O preço deve ser positivo",
+    "price_required": "Preço é obrigatório",
+    "image_url": "URL inválida",
+    "image_required": "Imagem é obrigatória",
+    "module_required": "Nome do módulo é obrigatório"
+  }
+}
