@@ -1,32 +1,48 @@
 .languageSwitcher {
-  display: flex;
-  gap: 0.5rem;
-  background-color: #f1f3f5;
-  border-radius: 8px;
-  padding: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 1rem;
-}
+  position: fixed;
+  top: 1rem;
+  right: 4rem;
+  z-index: 1000;
 
-.langBtn {
-  background-color: transparent;
-  border: none;
-  font-weight: 600;
-  color: #495057;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+  .toggle {
+    background-color: #fff;
+    color: #343a40;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
 
-  &:hover {
-    background-color: #dee2e6;
+    &:hover {
+      background-color: #f8f9fa;
+    }
   }
 
-  &.active {
-    background-color: #343a40;
-    color: #fff;
+  .dropdown {
+    position: absolute;
+    top: 2.8rem;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+
+    button {
+      padding: 0.5rem 1rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #f1f3f5;
+      }
+    }
   }
 }
