@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './initialSection.module.scss';
+import styles from './initialAdminSection.module.scss';
 
 const InitialAdminSection: React.FC = () => {
     return (
