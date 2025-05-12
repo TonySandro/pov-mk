@@ -1,0 +1,50 @@
+.initialSectionSec {
+  background: linear-gradient(90deg, #6c63ff 0%, #836fff 100%);
+  color: #fff;
+  padding: 2.5rem 1rem;
+}
+
+.initialSectionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.welcomeText {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.roleText {
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin: 0;
+  color: #e5e5f5;
+}
+
+@media (max-width: 768px) {
+  .welcomeText {
+    font-size: 1.5rem;
+  }
+
+  .roleText {
+    font-size: 1rem;
+  }
+
+  .initialSectionContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,23 @@
+.cancel_button {
+    background: #e03131;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e0e0e0;
+        color: #000;
+    }
+
+    &:active {
+        background-color: #d6d6d6;
+        color: #000;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+}

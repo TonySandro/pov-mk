@@ -1,7 +1,7 @@
 import bannerImage from '../../image/education-banner.jpg';
-import InitialSection from '../../components/InitialPage/initialSection/InitialSection';
 import { CourseObject, CourseObject1 } from './data';
-import AllCourses from '../../components/InitialPage/allCourses/allCourses';
+import AllCourses from '../../components/initialPage/allCourses/allCourses';
+import InitialSection from '../../components/initialPage/initialSection/initialSection';
 
 function Catalog() {
     return (
