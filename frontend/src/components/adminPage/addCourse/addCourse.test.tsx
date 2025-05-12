@@ -1,13 +1,21 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import AddCourse from './addCourse';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import courseReducer from "../../../features/course/courseSlice";
+
 
 const mockConsole = jest.spyOn(console, 'log').mockImplementation(() => {});
 
-describe('AddCourse component', () => {
+    const store = configureStore({ reducer: courseReducer });
+    render(
+      <Provider store={store}>
+        <AddCourse />
+      </Provider>
+    );
   beforeEach(() => {
     // eslint-disable-next-line testing-library/no-render-in-setup
     render(<AddCourse />);
-  });
 
   it('Ensure that the form is sent with valid data', async () => {
     fireEvent.input(screen.getByLabelText(/título/i), {

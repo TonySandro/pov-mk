@@ -2,6 +2,9 @@ import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { addCourse } from '../../../features/course/courseSlice';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './addCourse.module.scss';
 
 const courseSchema = yup.object({
@@ -33,10 +36,13 @@ type CourseFormData = {
 };
 
 const AddCourse: React.FC = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm<CourseFormData>({
     resolver: yupResolver(courseSchema),
@@ -48,7 +54,9 @@ const AddCourse: React.FC = () => {
   });
 
   const onSubmit = (data: CourseFormData) => {
-    console.log('Curso adicionado:', data);
+    const courseWithId = { ...data, id: uuidv4() };
+    dispatch(addCourse(courseWithId));
+    reset(); // Limpa o formulário após adicionar
   };
 
   return (

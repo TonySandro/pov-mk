@@ -1,4 +1,5 @@
 import AddCourse from "../../components/adminPage/addCourse/addCourse";
+import CourseList from "../../components/adminPage/courseList/courseList";
 import InitialAdminSection from "../../components/adminPage/initialAdminSection/initialAdminSection";
 
 function AdminPage() {
@@ -6,6 +7,7 @@ function AdminPage() {
     <div>
       <InitialAdminSection />
       <AddCourse />
+      <CourseList />
     </div>
   );
 }
