@@ -7,6 +7,7 @@ import { store } from './app/store';
 import LoginPage from './pages/login';
 import Catalog from './pages/catalog';
 import './index.css';
+import AdminPage from './pages/admin';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,7 +19,8 @@ root.render(
       <Router>
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/home" element={<Catalog />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
     </Provider>
