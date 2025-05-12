@@ -6,8 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './app/store';
 import LoginPage from './pages/login';
 import Catalog from './pages/catalog';
-import './index.css';
 import AdminPage from './pages/admin';
+import './index.css';
+import './i18n';
+import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,6 +17,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+    <LanguageSwitcher />
+    
     <Provider store={store}>
       <Router>
         <Routes>
