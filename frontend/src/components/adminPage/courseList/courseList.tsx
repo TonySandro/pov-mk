@@ -13,7 +13,6 @@ const CourseList: React.FC = () => {
 
   return (
     <section className={styles.courseListSection}>
-      <h2 className={styles.sectionTitle}>Cursos Cadastrados</h2>
       <div className={`${styles.courseGrid} ${courses.length === 1 ? styles.single : ''}`}>
         {courses.map(course => (
           <CourseItem key={course.id} course={course} />
