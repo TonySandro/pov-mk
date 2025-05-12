@@ -1,0 +1,32 @@
+.languageSwitcher {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #f1f3f5;
+  border-radius: 8px;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.langBtn {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #dee2e6;
+  }
+
+  &.active {
+    background-color: #343a40;
+    color: #fff;
+  }
+}
