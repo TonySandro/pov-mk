@@ -1,28 +1,7 @@
-.bannerSection {
-  background-color: #fff;
-  padding: 1rem 0;
-}
-
-.bannerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 1rem;
-}
-
-.bannerImage {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
 .initialSectionSec {
   background-color: #f8f9fa;
-  padding: 1rem 0;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .initialSectionContainer {
@@ -32,22 +11,41 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
 }
 
 .textWrapper {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 }
 
 .welcomeText {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #212529;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 }
 
 .roleText {
   font-size: 1rem;
   color: #6c757d;
-  margin: 0.25rem 0 0 0;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
 }
