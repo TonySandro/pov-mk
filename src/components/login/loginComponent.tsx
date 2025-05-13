@@ -69,11 +69,6 @@ const LoginComponent: React.FC = () => {
 
             <button className={styles.loginButton} type="submit">{t('login:submit')}</button>
           </form>
-
-          <p className={styles.bottomText}>
-            {t('login:noAccount')}{' '}
-            <a className={styles.registerLink} href="#cadastro">{t('login:register')}</a>
-          </p>
         </div>
       </div>
     </section>
