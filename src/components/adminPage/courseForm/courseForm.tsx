@@ -33,7 +33,6 @@ const CourseForm: React.FC<Props> = ({ onSubmit, initialValues, submitLabel }) =
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<CourseFormData>({
     resolver: yupResolver(courseSchema(t)),
