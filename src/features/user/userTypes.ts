@@ -1,4 +1,12 @@
-export interface UserState {
+export type UserRole = "admin" | "client";
+
+export interface User {
   name: string;
-  loggedIn: boolean;
+  email: string;
+  role: UserRole;
+}
+
+export interface UserState {
+  user: User | null;
+  isAuthenticated: boolean;
 }
