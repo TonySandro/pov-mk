@@ -1,13 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface Course {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-  modules: { name: string }[];
-}
+import { Course } from "../../interfaces/course";
 
 interface CoursesState {
   list: Course[];

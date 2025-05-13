@@ -1,4 +1,3 @@
-import { CourseObject, CourseObject1 } from './data';
 import AllCourses from '../../components/initialPage/allCourses/allCourses';
 import InitialSection from '../../components/initialPage/initialSection/initialSection';
 import { useAppSelector } from '../../hooks/useAppSelector';
@@ -7,6 +6,7 @@ import { useEffect } from 'react';
 
 function Catalog() {
     const isLogged = useAppSelector(state => state.user.isAuthenticated);
+    const courses = useAppSelector(state => state.course.list);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,7 +18,7 @@ function Catalog() {
     return (
         <div>
             <InitialSection />
-            <AllCourses courses={[CourseObject, CourseObject1]} />
+            <AllCourses courses={courses} />
         </div>
     );
 }

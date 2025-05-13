@@ -10,9 +10,7 @@ interface Props {
     id: string;
     title: string;
     description: string;
-    price: number;
     imageUrl: string;
-    modules: { name: string }[];
   };
   onClose: () => void;
 }
