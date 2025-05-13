@@ -10,7 +10,7 @@ i18n
   .init({
     fallbackLng: "pt",
     supportedLngs: ["pt", "en"],
-    ns: ["common", "addCourse"],
+    ns: ["common", "addCourse", "adminPage"],
     defaultNS: "common",
 
     backend: {

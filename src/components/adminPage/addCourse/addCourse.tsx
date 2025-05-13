@@ -21,19 +21,22 @@ const AddCourse: React.FC = () => {
   const { t } = useTranslation();
 
   const courseSchema = yup.object({
-    title: yup.string().required(t('errors.title')),
-    description: yup.string().required(t('errors.description')),
+    title: yup.string().required(t('addCourse:errors.title')),
+    description: yup.string().required(t('addCourse:errors.description')),
     price: yup
       .number()
-      .typeError(t('errors.price_type'))
-      .positive(t('errors.price_positive'))
-      .required(t('errors.price_required')),
-    imageUrl: yup.string().url(t('errors.image_url')).required(t('errors.image_required')),
+      .typeError(t('addCourse:errors.price_type'))
+      .positive(t('addCourse:errors.price_positive'))
+      .required(t('addCourse:errors.price_required')),
+    imageUrl: yup
+      .string()
+      .url(t('addCourse:errors.image_url'))
+      .required(t('addCourse:errors.image_required')),
     modules: yup
       .array()
       .of(
         yup.object({
-          name: yup.string().required(t('errors.module_required')),
+          name: yup.string().required(t('addCourse:errors.module_required')),
         })
       )
       .optional()
@@ -68,40 +71,40 @@ const AddCourse: React.FC = () => {
         <div className={styles.formWrapper}>
           <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="title">{t('title')}</label>
+              <label className={styles.label} htmlFor="title">{t('addCourse:title')}</label>
               <input className={styles.input} id="title" {...register('title')} />
               {errors.title && <p className={styles.errorText}>{errors.title.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="description">{t('description')}</label>
+              <label className={styles.label} htmlFor="description">{t('addCourse:description')}</label>
               <textarea className={styles.input} id="description" {...register('description')} />
               {errors.description && <p className={styles.errorText}>{errors.description.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="price">{t('price')}</label>
+              <label className={styles.label} htmlFor="price">{t('addCourse:price')}</label>
               <input type="number" className={styles.input} id="price" {...register('price')} />
               {errors.price && <p className={styles.errorText}>{errors.price.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="imageUrl">{t('imageUrl')}</label>
+              <label className={styles.label} htmlFor="imageUrl">{t('addCourse:imageUrl')}</label>
               <input className={styles.input} id="imageUrl" {...register('imageUrl')} />
               {errors.imageUrl && <p className={styles.errorText}>{errors.imageUrl.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label}>{t('modulesLabel')}</label>
+              <label className={styles.label}>{t('addCourse:modulesLabel')}</label>
               {fields.map((field, index) => (
                 <div key={field.id} className={styles.moduleItem}>
                   <input
                     className={styles.input}
-                    placeholder={t('modulePlaceholder', { index: index + 1 })}
+                    placeholder={t('addCourse:modulePlaceholder', { index: index + 1 })}
                     {...register(`modules.${index}.name` as const)}
                   />
                   <button type="button" onClick={() => remove(index)}>
-                    {t('remove')}
+                    {t('addCourse:remove')}
                   </button>
                   {errors.modules?.[index]?.name && (
                     <p className={styles.errorText}>{errors.modules[index]?.name?.message}</p>
@@ -113,11 +116,11 @@ const AddCourse: React.FC = () => {
                 className={styles.addModuleButton}
                 onClick={() => append({ name: '' })}
               >
-                {t('addModule')}
+                {t('addCourse:addModule')}
               </button>
             </div>
 
-            <button className={styles.loginButton} type="submit">{t('submit')}</button>
+            <button className={styles.loginButton} type="submit">{t('addCourse:submit')}</button>
           </form>
         </div>
       </div>

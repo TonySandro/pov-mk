@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import AddCourse from '../addCourse/addCourse';
 import CourseList from '../courseList/courseList';
 import styles from './adminTabs.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const AdminTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'add' | 'list'>('list');
+  const { t } = useTranslation();
 
   return (
     <div className={styles.adminTabs}>
@@ -13,13 +15,13 @@ const AdminTabs: React.FC = () => {
           className={`${styles.tabButton} ${activeTab === 'add' ? styles.active : ''}`}
           onClick={() => setActiveTab('add')}
         >
-          Adicionar Curso
+          {t('adminPage:tabs.addCourse')}
         </button>
         <button
           className={`${styles.tabButton} ${activeTab === 'list' ? styles.active : ''}`}
           onClick={() => setActiveTab('list')}
         >
-          Todos os Cursos
+          {t('adminPage:tabs.allCourses')}
         </button>
       </div>
 

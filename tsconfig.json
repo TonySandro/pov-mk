@@ -20,5 +20,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src/**/*", "declarations.d.ts"]
+  "include": ["src/**/*", "declarations.d.ts", "react-i18next.d.ts"],	
 }

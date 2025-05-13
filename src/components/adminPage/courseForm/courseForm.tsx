@@ -3,22 +3,27 @@ import { useForm, useFieldArray } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './courseForm.module.scss';
+import { useTranslation } from 'react-i18next';
 
-export const courseSchema = yup.object({
-  title: yup.string().required('Título é obrigatório'),
-  description: yup.string().required('Descrição é obrigatória'),
-  price: yup
-    .number()
-    .typeError('O preço deve ser um número')
-    .positive('O preço deve ser positivo')
-    .required('Preço é obrigatório'),
-  imageUrl: yup.string().url('URL inválida').required('Imagem é obrigatória'),
-  modules: yup
-    .array()
-    .of(yup.object({ name: yup.string().required('Nome do módulo é obrigatório') }))
-    .optional()
-    .default([]),
-});
+export const courseSchema = (t: (key: string) => string) =>
+  yup.object({
+    title: yup.string().required(t('addCourse:errors.title')),
+    description: yup.string().required(t('addCourse:errors.description')),
+    price: yup
+      .number()
+      .typeError(t('addCourse:errors.price_type'))
+      .positive(t('addCourse:errors.price_positive'))
+      .required(t('addCourse:errors.price_required')),
+    imageUrl: yup
+      .string()
+      .url(t('addCourse:errors.image_url'))
+      .required(t('addCourse:errors.image_required')),
+    modules: yup
+      .array()
+      .of(yup.object({ name: yup.string().required(t('addCourse:errors.module_required')) }))
+      .optional()
+      .default([]),
+  });
 
 export type CourseFormData = {
   title: string;
@@ -35,6 +40,8 @@ interface Props {
 }
 
 const CourseForm: React.FC<Props> = ({ onSubmit, initialValues, submitLabel }) => {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -42,7 +49,7 @@ const CourseForm: React.FC<Props> = ({ onSubmit, initialValues, submitLabel }) =
     reset,
     formState: { errors },
   } = useForm<CourseFormData>({
-    resolver: yupResolver(courseSchema),
+    resolver: yupResolver(courseSchema(t)),
     defaultValues: initialValues || {
       title: '',
       description: '',
@@ -60,42 +67,47 @@ const CourseForm: React.FC<Props> = ({ onSubmit, initialValues, submitLabel }) =
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.formGroup}>
-        <label>Título</label>
+        <label>{t('addCourse:title')}</label>
         <input {...register('title')} />
         {errors.title && <p className={styles.errorText}>{errors.title.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Descrição</label>
+        <label>{t('addCourse:description')}</label>
         <textarea {...register('description')} />
         {errors.description && <p className={styles.errorText}>{errors.description.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Preço</label>
+        <label>{t('addCourse:price')}</label>
         <input type="number" {...register('price')} />
         {errors.price && <p className={styles.errorText}>{errors.price.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>URL da Imagem</label>
+        <label>{t('addCourse:imageUrl')}</label>
         <input {...register('imageUrl')} />
         {errors.imageUrl && <p className={styles.errorText}>{errors.imageUrl.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
-        <label>Módulos</label>
+        <label>{t('addCourse:modulesLabel')}</label>
         {fields.map((field, index) => (
           <div key={field.id} className={styles.moduleItem}>
-            <input {...register(`modules.${index}.name` as const)} />
-            <button type="button" onClick={() => remove(index)}>Remover</button>
+            <input
+              placeholder={t('addCourse:modulePlaceholder', { index: index + 1 })}
+              {...register(`modules.${index}.name` as const)}
+            />
+            <button type="button" onClick={() => remove(index)}>
+              {t('addCourse:remove')}
+            </button>
             {errors.modules?.[index]?.name && (
               <p className={styles.errorText}>{errors.modules[index]?.name?.message}</p>
             )}
           </div>
         ))}
         <button type="button" onClick={() => append({ name: '' })}>
-          Adicionar Módulo
+          {t('addCourse:addModule')}
         </button>
       </div>
 

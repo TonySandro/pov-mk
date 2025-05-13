@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { updateCourse } from '../../../features/course/courseSlice';
 import CourseForm, { CourseFormData } from '../courseForm/courseForm';
 import styles from './editCourse.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   course: {
@@ -18,6 +19,7 @@ interface Props {
 
 const EditCourse: React.FC<Props> = ({ course, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleUpdate = (data: CourseFormData) => {
     dispatch(updateCourse({ ...data, id: course.id }));
@@ -26,13 +28,15 @@ const EditCourse: React.FC<Props> = ({ course, onClose }) => {
 
   return (
     <div>
-      <h2>Editar Curso</h2>
+      <h2>{t('addCourse:editTitle')}</h2>
       <CourseForm
         onSubmit={handleUpdate}
         initialValues={course}
-        submitLabel="Salvar Alterações"
+        submitLabel={t('addCourse:saveChanges')}
       />
-      <button onClick={onClose} className={styles.cancel_button}>Cancelar</button>
+      <button onClick={onClose} className={styles.cancel_button}>
+        {t('addCourse:cancel')}
+      </button>
     </div>
   );
 };
