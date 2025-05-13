@@ -1,32 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { store } from './app/store';
-import LoginPage from './pages/login';
-import Catalog from './pages/catalog';
-import AdminPage from './pages/admin';
 import './index.css';
 import './i18n';
-import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
+import reportWebVitals from './reportWebVitals';
+import App from './App';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from './app/store';
+import { Provider } from 'react-redux';
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <React.StrictMode>
-    <LanguageSwitcher />
-    
     <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </Router>
+      <PersistGate persistor={persistor}>
+        <Suspense>
+          <App />
+        </Suspense>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
