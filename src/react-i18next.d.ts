@@ -8,5 +8,6 @@ declare module "react-i18next" {
     common: typeof common;
     addCourse: typeof addCourse;
     adminPage: typeof adminPage;
+    adminPage: typeof adminPage;
   }
 }

@@ -4,5 +4,9 @@
   "yes": "Yes",
   "no": "No",
   "cancel": "Cancel",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "availableCourses": "Available Courses",
+  "currency": "$",
+  "welcomeBack": "Welcome back,",
+  "goodStudies": "Enjoy your learning!"
 }

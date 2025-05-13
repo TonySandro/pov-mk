@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './allCourses.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Course {
   id: number;
@@ -14,10 +15,12 @@ interface AllCoursesProps {
 }
 
 const AllCourses: React.FC<AllCoursesProps> = ({ courses = [] }) => {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.allCoursesSec}>
       <div className={styles.allCoursesContainer}>
-        <h2 className={styles.coursesTitle}>Cursos disponíveis</h2>
+        <h2 className={styles.coursesTitle}>{t('common:availableCourses')}</h2>
 
         <div className={styles.coursesRow}>
           {courses.map((course) => (
@@ -31,7 +34,9 @@ const AllCourses: React.FC<AllCoursesProps> = ({ courses = [] }) => {
               <div className={styles.cardBody}>
                 <h3 className={styles.courseTitle}>{course.title}</h3>
                 <p className={styles.courseDescription}>{course.description}</p>
-                <p className={styles.coursePrice}>R$ {course.price}</p>
+                <p className={styles.coursePrice}>
+                  {t('common:currency')} {course.price}
+                </p>
               </div>
             </div>
           ))}

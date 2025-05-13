@@ -1,33 +1,17 @@
 import React from 'react';
 import styles from './initialSection.module.scss';
+import { useTranslation } from 'react-i18next';
 
-interface InitialSectionProps {
-  isAuthenticated: boolean;
-  bannerImage: string;
-}
-
-const InitialSection: React.FC<InitialSectionProps> = ({ isAuthenticated, bannerImage }) => {
-  if (!isAuthenticated) {
-    return (
-      <section className={styles.bannerSection}>
-        <div className={styles.bannerContainer}>
-          <img
-            className={styles.bannerImage}
-            src={bannerImage}
-            alt="Banner de acesso"
-          />
-        </div>
-      </section>
-    );
-  }
+const InitialSection: React.FC = () => {
+  const { t } = useTranslation();
 
   return (
     <section className={styles.initialSectionSec}>
       <div className={styles.initialSectionContainer}>
         <div className={styles.profileIcon}>TS</div>
         <div className={styles.textWrapper}>
-          <h1 className={styles.welcomeText}>Bem-vindo(a) de volta, Tony</h1>
-          <p className={styles.roleText}>Bons estudos!</p>
+          <h1 className={styles.welcomeText}>{t('common:welcomeBack')}</h1>
+          <p className={styles.roleText}>{t('common:goodStudies')}</p>
         </div>
       </div>
     </section>

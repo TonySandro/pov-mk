@@ -4,21 +4,24 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import styles from './loginComponent.module.scss';
 import image from '../../image/svg-3.svg';
 import * as yup from 'yup';
-
-const loginSchema = yup.object({
-  email: yup
-    .string()
-    .email('Formato de e-mail inválido')
-    .required('E-mail é obrigatório'),
-  password: yup
-    .string()
-    .min(6, 'A senha deve ter no mínimo 6 caracteres')
-    .required('Senha é obrigatória'),
-});
-
-type LoginFormData = yup.InferType<typeof loginSchema>;
+import { useTranslation } from 'react-i18next';
 
 const LoginComponent: React.FC = () => {
+  const { t } = useTranslation();
+
+  const loginSchema = yup.object({
+    email: yup
+      .string()
+      .email(t('login:errors.invalidEmail'))
+      .required(t('login:errors.emailRequired')),
+    password: yup
+      .string()
+      .min(6, t('login:errors.passwordMin'))
+      .required(t('login:errors.passwordRequired')),
+  });
+
+  type LoginFormData = yup.InferType<typeof loginSchema>;
+
   const {
     register,
     handleSubmit,
@@ -28,51 +31,48 @@ const LoginComponent: React.FC = () => {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    console.log("Logado", data);
-  }
+    console.log('Logado', data);
+  };
 
   return (
     <section className={styles.loginSection}>
       <div className={styles.loginContainer}>
         <div className={styles.imageWrapper}>
-          <img className={styles.loginImage} src={image} alt="Ilustração de login" />
+          <img className={styles.loginImage} src={image} alt={t('login:imageAlt')} />
         </div>
 
         <div className={styles.formWrapper}>
-          <h2 className={styles.formTitle}>Entre agora e aprofunde suas habilidades</h2>
+          <h2 className={styles.formTitle}>{t('login:title')}</h2>
           <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="email">E-mail</label>
+              <label className={styles.label} htmlFor="email">{t('login:email')}</label>
               <input
                 className={styles.input}
-                id="email" 
-                placeholder="Digite seu e-mail"
+                id="email"
+                placeholder={t('login:emailPlaceholder')}
                 {...register('email')}
               />
-              {errors.email && (
-                <p className={styles.errorText}>{errors.email.message}</p>
-              )}
+              {errors.email && <p className={styles.errorText}>{errors.email.message}</p>}
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="password">Senha</label>
+              <label className={styles.label} htmlFor="password">{t('login:password')}</label>
               <input
                 className={styles.input}
-                id="password" 
-                placeholder="Digite sua senha" 
+                id="password"
+                placeholder={t('login:passwordPlaceholder')}
+                type="password"
                 {...register('password')}
               />
-              {errors.password && (
-                <p className={styles.errorText}>{errors.password.message}</p>
-              )}
+              {errors.password && <p className={styles.errorText}>{errors.password.message}</p>}
             </div>
 
-            <button className={styles.loginButton} type="submit">Entrar</button>
+            <button className={styles.loginButton} type="submit">{t('login:submit')}</button>
           </form>
 
           <p className={styles.bottomText}>
-            Não tem uma conta?
-            <a className={styles.registerLink} href="#cadastro"> Cadastre-se</a>
+            {t('login:noAccount')}{' '}
+            <a className={styles.registerLink} href="#cadastro">{t('login:register')}</a>
           </p>
         </div>
       </div>
