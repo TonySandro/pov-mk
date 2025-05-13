@@ -104,16 +104,6 @@
   }
 }
 
-.coursePrice {
-  font-size: 1rem;
-  color: #333;
-  font-weight: bold;
-  margin: 0.5rem 0;
-
-  @media (max-width: 768px) {
-    font-size: 0.95rem;
-  }
-}
 .carouselControls {
   position: relative;
   display: flex;

@@ -2,16 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import EditCourse from '../editCourse';
 import styles from './editCourseModal.module.scss';
+import { Course } from '../../../../interfaces/course';
 
 interface Props {
-  course: {
-    id: string;
-    title: string;
-    description: string;
-    price: number;
-    imageUrl: string;
-    modules: { name: string }[];
-  };
+  course: Course;
   onClose: () => void;
 }
 
