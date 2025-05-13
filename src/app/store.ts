@@ -1,12 +1,10 @@
-// src/app/store.ts
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../features/user/userSlice";
 import courseReducer from "../features/course/courseSlice";
 
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // usa localStorage
+import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
-import { PersistGate } from "redux-persist/integration/react";
 
 const persistConfig = {
   key: "root",

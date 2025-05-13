@@ -7,14 +7,14 @@ import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher';
 
 const App: React.FC = () => {
   return (
-      <Router>
-        <LanguageSwitcher />
+    <Router>
+      <LanguageSwitcher />
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
-      </Router>
+    </Router>
   );
 };
 

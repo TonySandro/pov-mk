@@ -1,12 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User, UserState } from "./userTypes";
 
-const userFromStorage = localStorage.getItem("user");
-const initialUser = userFromStorage ? JSON.parse(userFromStorage) : null;
-
 const initialState: UserState = {
-  user: initialUser,
-  isAuthenticated: !!initialUser,
+  user: null,
+  isAuthenticated: false,
 };
 
 const userSlice = createSlice({
@@ -16,8 +13,6 @@ const userSlice = createSlice({
     login(state, action: PayloadAction<User>) {
       state.user = action.payload;
       state.isAuthenticated = true;
-
-      localStorage.setItem("user", JSON.stringify(action.payload));
     },
   },
 });

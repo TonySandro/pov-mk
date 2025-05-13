@@ -5,7 +5,7 @@ import styles from './loginComponent.module.scss';
 import image from '../../image/svg-3.svg';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '../../hooks/useAppDispatch'; // ajuste o path
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { login } from '../../features/user/userSlice';
 import { fakeUsers } from '../../data/fakeUsers';
 import { useNavigate } from 'react-router-dom';
