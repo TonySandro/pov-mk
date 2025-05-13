@@ -3,6 +3,7 @@ import InitialSection from '../../components/initialPage/initialSection/initialS
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import LogoutButton from '../../components/logout/logoutButton';
 
 function Catalog() {
     const isLogged = useAppSelector(state => state.user.isAuthenticated);
@@ -17,6 +18,7 @@ function Catalog() {
 
     return (
         <div>
+            <LogoutButton />
             <InitialSection />
             <AllCourses courses={courses} />
         </div>

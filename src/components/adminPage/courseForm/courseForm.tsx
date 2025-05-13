@@ -5,7 +5,6 @@ import * as yup from 'yup';
 import styles from './courseForm.module.scss';
 import { useTranslation } from 'react-i18next';
 
-// Schema com apenas os campos atuais
 export const courseSchema = (t: (key: string) => string) =>
   yup.object({
     title: yup.string().required(t('addCourse:errors.title')),
@@ -34,7 +33,6 @@ const CourseForm: React.FC<Props> = ({ onSubmit, initialValues, submitLabel }) =
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<CourseFormData>({
     resolver: yupResolver(courseSchema(t)),
