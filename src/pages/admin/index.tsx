@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router";
 import AdminTabs from "../../components/adminPage/adminTabs/adminTabs";
-import InitialAdminSection from "../../components/adminPage/initialAdminSection/initialAdminSection";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { useEffect } from "react";
 import LogoutButton from "../../components/logout/logoutButton";
+import InitialBar from "../../components/initialBar/initialBar";
+import NavBar from "../../components/navigation/navBar";
 
 function AdminPage() {
   const isLogged = useAppSelector(state => state.user.isAuthenticated);
@@ -18,8 +19,8 @@ function AdminPage() {
 
   return (
     <div>
-      <LogoutButton />
-      <InitialAdminSection />
+      <NavBar />
+      <InitialBar />
       <AdminTabs />
     </div>
   );

@@ -1,9 +1,10 @@
 import AllCourses from '../../components/initialPage/allCourses/allCourses';
-import InitialSection from '../../components/initialPage/initialSection/initialSection';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import LogoutButton from '../../components/logout/logoutButton';
+import InitialBar from '../../components/initialBar/initialBar';
+import NavBar from '../../components/navigation/navBar';
 
 function Catalog() {
     const isLogged = useAppSelector(state => state.user.isAuthenticated);
@@ -18,8 +19,8 @@ function Catalog() {
 
     return (
         <div>
-            <LogoutButton />
-            <InitialSection />
+            <NavBar />
+            <InitialBar />
             <AllCourses courses={courses} />
         </div>
     );

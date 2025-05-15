@@ -9,5 +9,9 @@
   "currency": "$",
   "welcomeBack": "Welcome back,",
   "logout": "Logout",
-  "goodStudies": "Enjoy your learning!"
+  "goodStudies": "Enjoy your learning!",
+  "home": "Home",
+  "courses": "Courses",
+  "dashboard": "Dashboard",
+  "profile": "Profile"
 }

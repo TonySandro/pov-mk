@@ -9,5 +9,9 @@
   "currency": "R$",
   "logout": "Sair",
   "welcomeBack": "Bem-vindo de volta,",
-  "goodStudies": "Bons estudos!"
+  "goodStudies": "Bons estudos!",
+  "home": "Início",
+  "courses": "Cursos",
+  "dashboard": "Painel",
+  "profile": "Perfil"
 }
