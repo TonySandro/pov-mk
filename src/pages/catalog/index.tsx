@@ -19,7 +19,6 @@ function Catalog() {
 
     return (
         <div>
-            <LogoutButton />
             <NavBar />
             <InitialBar />
             <AllCourses courses={courses} />

@@ -1,12 +1,15 @@
+@import '../LanguageSwitcher/languageSwitcher.module.scss';
+@import '../logout/logoutButton.module.scss';
+
 .navbar {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   border-bottom: 1px solid #dee2e6;
   padding: 1rem 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .navContainer {
-  max-width: 1200px;
+  max-width: 95%;
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
@@ -40,5 +43,16 @@
   @media (max-width: 768px) {
     gap: 1rem;
     font-size: 0.95rem;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }

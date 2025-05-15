@@ -19,7 +19,6 @@ function AdminPage() {
 
   return (
     <div>
-      <LogoutButton />
       <NavBar />
       <InitialBar />
       <AdminTabs />
