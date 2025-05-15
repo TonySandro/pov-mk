@@ -4,6 +4,7 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { useEffect } from "react";
 import LogoutButton from "../../components/logout/logoutButton";
 import InitialBar from "../../components/initialBar/initialBar";
+import NavBar from "../../components/navigation/navBar";
 
 function AdminPage() {
   const isLogged = useAppSelector(state => state.user.isAuthenticated);
@@ -19,6 +20,7 @@ function AdminPage() {
   return (
     <div>
       <LogoutButton />
+      <NavBar />
       <InitialBar />
       <AdminTabs />
     </div>
